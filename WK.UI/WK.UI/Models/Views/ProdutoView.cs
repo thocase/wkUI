@@ -2,11 +2,12 @@
 {
     public class ProdutoView
     {
-        public int Id { get; set; }
-        public string Nome { get; set; }
-        public string Descricao { get; set; }
-        public decimal Preco { get; set; }
-        public int QuantidadeEstoque { get; set; }
-        public ProdutoCategoriaView Categoria { get; set; }
+        public int id { get; set; }
+        public string nome { get; set; }
+        public string descricao { get; set; }
+        public decimal preco { get; set; }
+        public int quantidadeEstoque { get; set; }
+        public int categoriaId { get; set; }
+
     }
 }

@@ -1,4 +1,41 @@
-﻿@page
+﻿
+
+@page
 @model WK.UI.Pages.ProdutoCategoria.IndexModel
-@{
-}
+
+<h2>Lista de Categorias de Produto</h2>
+
+<!-- Consulta (filtro de busca) -->
+<form method="get">
+    <input type="text" name="FiltroList" value="@Model.FiltroList" placeholder="Buscar..." />
+    <button type="submit">Buscar</button>
+</form>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ProdutoCategoriaList)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.nome</td>
+                <td>@item.descricao</td>
+                <td>
+                    <a asp-page="/ProdutoCategoria/Edit" asp-route-id="@item.id" class="btn btn-primary">Editar</a>
+                    <form method="post" asp-page-handler="Delete" asp-route-id="@item.id" style="display:inline;">
+                        <button type="submit" class="btn btn-danger">Excluir</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-page="/ProdutoCategoria/Create" class="btn btn-success">Adicionar Nova Categoria</a>

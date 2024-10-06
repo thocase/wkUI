@@ -1,6 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
+using System.Net.Http;
 using System.Runtime;
+using System.Text.Json;
+using System.Text;
 using WK.UI.Aplicacao.Interfaces;
+using WK.UI.Models.Views;
 
 namespace WK.UI.Aplicacao.Services
 {
@@ -38,5 +42,41 @@ namespace WK.UI.Aplicacao.Services
                 return null;
             }
         }
+
+        public async Task<bool> PostDataAsync<T>(string metodo, T dados)
+        {
+            var jsonContent = JsonSerializer.Serialize(dados);
+
+            // Cria o conteúdo da requisição com o JSON serializado
+            var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+
+            // Faz o POST request para a API (substitua a URL pela sua)
+            var response = await client.PostAsync($"{_configuration["AppSettings:WKAPI"]}{metodo}", content);
+
+            // Verifica se a requisição foi bem-sucedida
+            return response.IsSuccessStatusCode;
+        }
+
+        public async Task<bool> PutDataAsync<T>(string metodo, T dados)
+        {
+            var jsonContent = JsonSerializer.Serialize(dados);
+
+            // Cria o conteúdo da requisição com o JSON serializado
+            var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+
+            // Faz o POST request para a API (substitua a URL pela sua)
+            var response = await client.PutAsync($"{_configuration["AppSettings:WKAPI"]}{metodo}", content);
+
+            // Verifica se a requisição foi bem-sucedida
+            return response.IsSuccessStatusCode;
+        }
+
+        public async Task<bool> DeleteDataAsync(string metodo)
+        {
+            var response = await client.DeleteAsync($"{_configuration["AppSettings:WKAPI"]}{metodo}");
+
+            return response.IsSuccessStatusCode;
+        }
+
     }
 }

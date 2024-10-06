@@ -1,0 +1,30 @@
+﻿@page "{id:int}"
+@model WK.UI.Pages.ProdutoCategoria.EditModel
+@{
+    ViewData["Title"] = "Editar Nova Categoria";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="ProdutoCategoria.nome"></label>
+        <input asp-for="ProdutoCategoria.nome" class="form-control" />
+        <span asp-validation-for="ProdutoCategoria.nome" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ProdutoCategoria.descricao"></label>
+        <input asp-for="ProdutoCategoria.descricao" class="form-control" />
+        <span asp-validation-for="ProdutoCategoria.descricao" class="text-danger"></span>
+    </div>
+
+    <input type="hidden" asp-for="ProdutoCategoria.id" />
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a asp-page="./Index" class="btn btn-secondary">Cancelar</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -28,3 +28,4 @@ C:\projeto wk\wkUI\WK.UI\WK.UI\obj\Debug\net8.0\refint\WK.UI.dll
 C:\projeto wk\wkUI\WK.UI\WK.UI\obj\Debug\net8.0\WK.UI.pdb
 C:\projeto wk\wkUI\WK.UI\WK.UI\obj\Debug\net8.0\WK.UI.genruntimeconfig.cache
 C:\projeto wk\wkUI\WK.UI\WK.UI\obj\Debug\net8.0\ref\WK.UI.dll
+C:\projeto wk\wkUI\WK.UI\WK.UI\obj\Debug\net8.0\WK.UI.sourcelink.json

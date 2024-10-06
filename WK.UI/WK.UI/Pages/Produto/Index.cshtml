@@ -1,4 +1,52 @@
-﻿@page
+﻿
+@page
+@using System.Globalization
 @model WK.UI.Pages.Produto.IndexModel
-@{
-}
+
+<h2>Lista de Produtos</h2>
+
+<!-- Consulta (filtro de busca) -->
+<form method="get">
+    <input type="text" name="FiltroList" value="@Model.FiltroList" placeholder="Buscar produto ou categoria..." class="form-control" />
+    <button type="submit" class="btn btn-primary mt-2">Buscar</button>
+</form>
+
+<table class="table table-bordered mt-4">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Preço</th>
+            <th>Quantidade em Estoque</th>
+            <th>Categoria</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var produto in Model.ProdutoList)
+        {
+            <tr>
+                <td>@produto.id</td>
+                <td>@produto.nome</td>
+                <td>@produto.descricao</td>
+                <td>@produto.preco.ToString("C", new CultureInfo("pt-BR"))</td>
+                <td>@produto.quantidadeEstoque</td>
+                <td>
+                    <select asp-for="@produto.categoriaId" asp-items="Model.ProdutoCategoria" class="form-control" disabled>
+                        <option value="">-- Selecione uma Categoria --</option>
+                    </select>
+                </td>
+
+                <td>
+                    <a asp-page="Edit" asp-route-id="@produto.id" class="btn btn-primary">Editar</a>
+                    <form method="post" asp-page-handler="Delete" asp-route-id="@produto.id" style="display:inline;">
+                        <button type="submit" class="btn btn-danger">Excluir</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-page="/Produto/Create" class="btn btn-success">Adicionar Novo Produto</a>

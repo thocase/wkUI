@@ -1,0 +1,52 @@
+﻿@page
+@model WK.UI.Pages.Produto.EditModel
+@{
+    ViewData["Title"] = "Editar Produto";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Produto.nome"></label>
+        <input asp-for="Produto.nome" class="form-control" />
+        <span asp-validation-for="Produto.nome" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Produto.descricao"></label>
+        <input asp-for="Produto.descricao" class="form-control" />
+        <span asp-validation-for="Produto.descricao" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Produto.preco"></label>
+        <input asp-for="Produto.preco" class="form-control" />
+        <span asp-validation-for="Produto.preco" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Produto.quantidadeEstoque"></label>
+        <input asp-for="Produto.quantidadeEstoque" class="form-control" />
+        <span asp-validation-for="Produto.quantidadeEstoque" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Produto.categoriaId">Categoria</label>
+        <!-- ListBox para selecionar a Categoria -->
+        <select asp-for="Produto.categoriaId" asp-items="Model.ProdutoCategoria" class="form-control">
+            <option value="">-- Selecione uma Categoria --</option>
+        </select>
+    </div>
+
+
+
+    <input type="hidden" asp-for="Produto.id" />
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a asp-page="./Index" class="btn btn-secondary">Cancelar</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
