@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WK.UI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+798cd03a92a842f7f63a56756da235ef6a6d3450")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+09483b94925396beda297aff0b54f3556c42a321")]
 [assembly: System.Reflection.AssemblyProductAttribute("WK.UI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WK.UI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
